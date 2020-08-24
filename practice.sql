@@ -28,6 +28,12 @@ CREATE TABLE Comments(CommentID int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 					  PostID int,
 					  FOREIGN KEY(PostID) REFERENCES Posts(PostID))
 
+ALTER TABLE Comments
+ADD CHECK (Email like '%@%')
+
+ALTER TABLE Users
+ADD CHECK (Email like '%@%')
+
 CREATE INDEX IX_UserName
 ON Users(UserName)
 
